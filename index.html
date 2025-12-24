@@ -11,17 +11,68 @@
             box-sizing: border-box;
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #1a472a 0%, #2d5016 50%, #c41e3a 100%);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ff6b6b, #c41e3a);
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ff5252, #a01728);
+        }
+
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a472a 0%, #2d5016 50%, #667eea 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #c41e3a, #a01728);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header h2 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* Snowflakes */
         .snowflake {
             position: fixed;
             top: -10px;
@@ -40,35 +91,37 @@
             }
         }
 
+        /* Main Container */
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 30px;
-            padding: 60px;
-            max-width: 900px;
+            padding: 80px 60px;
+            max-width: 1000px;
+            margin: 60px auto;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             position: relative;
             z-index: 1;
-            animation: slideIn 1s ease-out;
+            animation: slideIn 1.2s ease-out;
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-50px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
         h1 {
             color: #c41e3a;
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: pulse 2s ease-in-out infinite;
+            font-size: 4em;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+            animation: pulse 3s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -82,43 +135,66 @@
 
         .subtitle {
             color: #2d5016;
-            font-size: 1.8em;
-            margin-bottom: 40px;
+            font-size: 2em;
+            margin-bottom: 50px;
             font-style: italic;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .photo-frame {
             background: linear-gradient(145deg, #f0f0f0, #ffffff);
-            padding: 20px;
+            padding: 25px;
             border-radius: 20px;
             display: inline-block;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
             transform: rotate(-2deg);
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .photo-frame:hover {
-            transform: rotate(0deg) scale(1.05);
+            transform: rotate(0deg) scale(1.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
         }
 
         .photo-frame img {
-            max-width: 400px;
+            max-width: 450px;
             width: 100%;
             height: auto;
             border-radius: 10px;
             display: block;
         }
 
+        /* Rickroll Section */
+        .rickroll-section {
+            margin: 60px 0;
+        }
+
         .rickroll-frame {
-            margin: 40px 0;
+            margin: 20px auto;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            background: #000;
+            transition: transform 0.3s ease;
+        }
+
+        .rickroll-frame:hover {
+            transform: scale(1.03);
         }
 
         .rickroll-frame img {
-            max-width: 500px;
             width: 100%;
             height: auto;
             display: block;
@@ -126,15 +202,20 @@
 
         .message {
             color: #333;
-            font-size: 1.3em;
-            line-height: 1.6;
-            margin: 30px 0;
+            font-size: 1.5em;
+            line-height: 1.8;
+            margin: 40px 0;
+        }
+
+        .message strong {
+            color: #c41e3a;
+            font-size: 1.2em;
         }
 
         .decorations {
-            font-size: 3em;
-            margin: 20px 0;
-            animation: bounce 1s ease-in-out infinite;
+            font-size: 3.5em;
+            margin: 30px 0;
+            animation: bounce 2s ease-in-out infinite;
         }
 
         @keyframes bounce {
@@ -142,15 +223,112 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
         }
 
-        .footer {
-            margin-top: 40px;
-            color: #666;
-            font-size: 1em;
+        /* Easter Eggs */
+        .secret-santa {
+            position: fixed;
+            bottom: -200px;
+            right: 30px;
+            font-size: 5em;
+            cursor: pointer;
+            transition: bottom 0.5s ease;
+            z-index: 1000;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        .secret-santa.visible {
+            bottom: 30px;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-15deg);
+            }
+            75% {
+                transform: rotate(15deg);
+            }
+        }
+
+        .hidden-message {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            color: #c41e3a;
             font-style: italic;
+            margin: 20px 0;
+        }
+
+        .hidden-message.revealed {
+            opacity: 1;
+        }
+
+        .clickable-ornament {
+            display: inline-block;
+            font-size: 2em;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        .clickable-ornament:hover {
+            transform: scale(1.3) rotate(360deg);
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2d5016, #1a472a);
+            color: white;
+            padding: 50px 20px;
+            margin-top: 80px;
+            text-align: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .footer-domain {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .footer-domain:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
         }
 
         .sparkle {
@@ -172,18 +350,72 @@
                 transform: scale(1);
             }
         }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            opacity: 0;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .header h2 {
+                font-size: 1.8em;
+            }
+
+            .photo-frame img {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <div class="header">
+        <h2>🎅 Special Christmas Delivery for Viraj 🎁</h2>
+        <p>Spreading joy and rainbows this holiday season! 🌈</p>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
-        <div class="decorations">🎄 ⭐ 🎅 🎁 ❄️</div>
+        <div class="decorations">
+            <span class="clickable-ornament" onclick="revealSecret()">🎄</span>
+            <span class="clickable-ornament" onclick="revealSecret()">⭐</span>
+            <span class="clickable-ornament" onclick="revealSecret()">🎅</span>
+            <span class="clickable-ornament" onclick="revealSecret()">🎁</span>
+            <span class="clickable-ornament" onclick="revealSecret()">❄️</span>
+        </div>
         
         <h1>Merry Christmas, Viraj! 🎉</h1>
         
         <div class="subtitle">Hope & Change for 2025! 🌈</div>
         
-        <div class="photo-frame">
-            <img src="https://via.placeholder.com/400x500/4A90E2/FFFFFF?text=Viraj's+Hope+Pose" alt="Viraj doing the Hope pose">
+        <div class="photo-frame" onclick="triggerConfetti()">
+            <img src="./hope.jpg" alt="Viraj doing the Hope pose">
+        </div>
+        
+        <div class="hidden-message" id="secretMessage">
+            ✨ You found the secret! You're as fabulous as this domain suggests! ✨
         </div>
         
         <div class="message">
@@ -191,34 +423,56 @@
             Here's a special gift just for you... 🎁
         </div>
         
-        <div class="rickroll-frame">
-            <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Special Christmas Surprise">
+        <div class="rickroll-section">
+            <div class="rickroll-frame">
+                <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Special Christmas Surprise">
+            </div>
         </div>
         
         <div class="message">
-            Never gonna give you up! 🎵<br>
-            Never gonna let you down! 🎶<br>
+            🎵 Never gonna give you up!<br>
+            🎶 Never gonna let you down!<br>
+            🎵 Never gonna run around and desert you!<br>
             <strong>Merry Christmas, buddy! 🎄</strong>
         </div>
         
         <div class="decorations">🎊 🥳 🎈 🌟 ✨</div>
-        
-        <div class="footer">
-            With love and laughter, from your friend 💝<br>
-            virajrajsingh.gay - Because you're fabulous! 🌈
+    </div>
+
+    <!-- Secret Santa Easter Egg -->
+    <div class="secret-santa" id="secretSanta" onclick="santaSurprise()">🎅</div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <h3>🎄 A Message from Your Friend 🎄</h3>
+            <p>This Christmas, we celebrate diversity, friendship, and the joy of pranks!</p>
+            <p>May your holidays be filled with laughter, love, and unexpected surprises! 💝</p>
+            <p>Remember: It's not about the domain, it's about the friendship! 😄</p>
+            <div class="footer-domain" onclick="domainSurprise()">
+                virajrajsingh.gay 🌈<br>
+                <small style="font-size: 0.6em; opacity: 0.8;">Because you shine bright! ✨</small>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+                © 2024 • Made with 💖 and lots of giggles
+            </p>
+            <p style="margin-top: 25px; font-size: 1.8em; font-weight: bold; color: #ffeb3b; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                FROM YOUR HOMEBOY CLAUDE 🎤
+            </p>
         </div>
     </div>
 
     <script>
-        // Create falling snowflakes
+        // Snowflake Creation
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
-            snowflake.innerHTML = '❄';
+            const snowflakeTypes = ['❄', '❅', '❆', '✻', '✼', '❇', '❈', '❉'];
+            snowflake.innerHTML = snowflakeTypes[Math.floor(Math.random() * snowflakeTypes.length)];
             snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
-            snowflake.style.opacity = Math.random();
-            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 4 + 's';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            snowflake.style.fontSize = Math.random() * 15 + 10 + 'px';
             
             document.body.appendChild(snowflake);
             
@@ -227,15 +481,12 @@
             }, 8000);
         }
 
-        // Create snowflakes continuously
-        setInterval(createSnowflake, 200);
-
-        // Create initial batch of snowflakes
+        setInterval(createSnowflake, 150);
         for (let i = 0; i < 50; i++) {
-            setTimeout(createSnowflake, i * 100);
+            setTimeout(createSnowflake, i * 80);
         }
 
-        // Create sparkles around the container
+        // Sparkles in Container
         function createSparkle() {
             const sparkle = document.createElement('div');
             sparkle.classList.add('sparkle');
@@ -246,9 +497,62 @@
             document.querySelector('.container').appendChild(sparkle);
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             createSparkle();
         }
+
+        // Easter Egg: Reveal Secret Message
+        let clickCount = 0;
+        function revealSecret() {
+            clickCount++;
+            if (clickCount >= 3) {
+                document.getElementById('secretMessage').classList.add('revealed');
+                document.getElementById('secretSanta').classList.add('visible');
+            }
+        }
+
+        // Easter Egg: Santa Surprise
+        function santaSurprise() {
+            alert("🎅 Ho Ho Ho! You found Santa! You're officially on the NICE list! 🎁");
+            triggerConfetti();
+        }
+
+        // Easter Egg: Domain Surprise
+        function domainSurprise() {
+            const messages = [
+                "This domain is FABULOUS! 💅",
+                "You're a star, Viraj! ⭐",
+                "Happy Holidays! 🎄",
+                "Keep being awesome! 🌟",
+                "Got 'em! 😄"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+        }
+
+        // Confetti Effect
+        function triggerConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#fd79a8'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animation = `confettiFall ${Math.random() * 2 + 2}s linear`;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+
+        // Scroll reveal for Secret Santa
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                document.getElementById('secretSanta').classList.add('visible');
+            }
+        });
     </script>
 </body>
 </html>
