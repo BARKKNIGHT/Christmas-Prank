@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas Viraj! 🎄</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px #000;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 60px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #c41e3a;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .subtitle {
+            color: #2d5016;
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .photo-frame {
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo-frame img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .rickroll-frame {
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .rickroll-frame img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin: 30px 0;
+        }
+
+        .decorations {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 1em;
+            font-style: italic;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorations">🎄 ⭐ 🎅 🎁 ❄️</div>
+        
+        <h1>Merry Christmas, Viraj! 🎉</h1>
+        
+        <div class="subtitle">Hope & Change for 2025! 🌈</div>
+        
+        <div class="photo-frame">
+            <img src="https://via.placeholder.com/400x500/4A90E2/FFFFFF?text=Viraj's+Hope+Pose" alt="Viraj doing the Hope pose">
+        </div>
+        
+        <div class="message">
+            We're celebrating you this Christmas!<br>
+            Here's a special gift just for you... 🎁
+        </div>
+        
+        <div class="rickroll-frame">
+            <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Special Christmas Surprise">
+        </div>
+        
+        <div class="message">
+            Never gonna give you up! 🎵<br>
+            Never gonna let you down! 🎶<br>
+            <strong>Merry Christmas, buddy! 🎄</strong>
+        </div>
+        
+        <div class="decorations">🎊 🥳 🎈 🌟 ✨</div>
+        
+        <div class="footer">
+            With love and laughter, from your friend 💝<br>
+            virajrajsingh.gay - Because you're fabulous! 🌈
+        </div>
+    </div>
+
+    <script>
+        // Create falling snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 8000);
+        }
+
+        // Create snowflakes continuously
+        setInterval(createSnowflake, 200);
+
+        // Create initial batch of snowflakes
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
+
+        // Create sparkles around the container
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            
+            document.querySelector('.container').appendChild(sparkle);
+        }
+
+        for (let i = 0; i < 20; i++) {
+            createSparkle();
+        }
+    </script>
+</body>
+</html>
